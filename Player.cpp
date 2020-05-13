@@ -45,7 +45,6 @@ void Player::draw(RenderTarget& target, RenderStates states) const
 {
 	states.transform *= getTransform();
 	states.texture = &texture;
-	//std::cout << target.getView().getCenter().x << ", " << target.getView().getCenter().x << std::endl;
 
 	target.draw(sprite, states);
 	target.draw(healthRect);
@@ -89,4 +88,5 @@ void Player::update(View& view, float time)
 	healthText.setString(std::to_string(health));
 }
 
+void Player::setPosition(int X, int Y) { rect.left = X; rect.top = Y; }
 Vector2f Player::getPosition() { return { rect.left, rect.top }; }

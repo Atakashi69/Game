@@ -12,7 +12,6 @@ class Engine
 {
 	RenderWindow window;
 	View view;
-	Enemy* enemy = nullptr;
 	Player* player = nullptr;
 	TileMap* tilemap = nullptr;
 	bool gameState = true;

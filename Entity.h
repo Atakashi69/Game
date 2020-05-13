@@ -15,4 +15,6 @@ public:
 	int health = 10;
 	FloatRect rect;
 	Vector2f velocity;
+
+	void setPosition(int X, int Y) { rect.left = X; rect.top = Y; }
 };

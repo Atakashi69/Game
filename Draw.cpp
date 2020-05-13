@@ -6,7 +6,7 @@ void Engine::draw()
 
 	window.draw(*tilemap);
 	window.draw(*player);
-	window.draw(*enemy);
+	//window.draw(*enemy);
 
 	window.display();
 }

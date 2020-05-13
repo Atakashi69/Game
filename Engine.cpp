@@ -3,25 +3,25 @@
 Engine::Engine()
 {
 	window.create(VideoMode(800, 600), "title", Style::Close);
-	window.setVerticalSyncEnabled(true);
+	window.setFramerateLimit(120);
+	window.setVerticalSyncEnabled(false);
 	player = new Player(300, 300, 16, 22, "assets/player.png");
-	enemy = new Enemy(400, 400, 16, 22, "assets/enemy.png");
-	tilemap = new TileMap("assets/maps/level0.txt");
+	tilemap = new TileMap;
 }
 
 void  Engine::start()
 {
 	Clock clock;
 
-	float leftBorder = 500;
-	float rightBorder = tilemap->getSize().x * 128 - leftBorder;
-	float topBorder = 500;
-	float bottomBorder = tilemap->getSize().y * 128 - topBorder;
-
 	while (window.isOpen())
 	{
 		float time = clock.restart().asSeconds();
 		view.setCenter(floor(player->getPosition().x), floor(player->getPosition().y));
+
+		float leftBorder = 500;
+		float rightBorder = tilemap->getSize().x * 128 - leftBorder;
+		float topBorder = 500;
+		float bottomBorder = tilemap->getSize().y * 128 - topBorder;
 
 		if (view.getCenter().x < leftBorder)
 			view.setCenter(leftBorder, view.getCenter().y);
@@ -46,5 +46,4 @@ Engine::~Engine()
 {
 	delete tilemap;
 	delete player;
-	delete enemy;
 }

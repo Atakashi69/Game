@@ -18,20 +18,19 @@ void Enemy::input(Entity* ent, float time)
 	if (ent->rect.intersects(area))
 	{
 		//Hunting
-		visibility = 250.f;
+		visibility = 350.f;
 		if (Pleft + 10 > Tright || Pright - 10 < Tleft)
 		{
 			if (Pleft + 10 > Tright)
-				velocity.x += speed;
+				velocity.x = speed;
 			if (Pright - 10 < Tleft)
-				velocity.x += -speed;
+				velocity.x = -speed;
 		}
-		else
-		{
+		else {
 			if (Ptop + 10 > Tbottom)
-				velocity.y += speed;
+				velocity.y = speed;
 			if (Pbottom - 10 < Ttop)
-				velocity.y += -speed;
+				velocity.y = -speed;
 		}
 
 		if (ent->rect.intersects(this->rect) && !ent->immunity)
@@ -49,7 +48,10 @@ void Enemy::input(Entity* ent, float time)
 			}
 		}
 	}
-	else visibility = 100.f;
+	else
+	{
+		visibility = 250.f;
+	}
 
 	rect.left += velocity.x * time;
 	rect.top += velocity.y * time;

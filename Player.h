@@ -11,8 +11,9 @@ class Player : public Entity
 	void animation(float time);
 	void draw(RenderTarget& target, RenderStates states) const;
 public:
-	Vector2f getPosition();
 	Player(int startX, int startY, int Width, int Height, std::string filename);
 	void input(float time);
 	void update(View& view, float time);
+	void setPosition(int X, int Y);
+	Vector2f getPosition();
 };
